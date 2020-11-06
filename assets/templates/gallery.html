@@ -1,0 +1,8 @@
+<article class="gallery {{:classes}}" style="{{:css}}">
+    <h3 class="collapsible-link">{{:title}}</h3>
+    <ul>
+        {{for data}}
+            <a href="{{:url}}" target="_blank"><li style="background-image: url({{:img}});"><h4>{{:title}}</h4></li></a>
+        {{/for}}
+    </ul>
+</article>

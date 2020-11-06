@@ -1,0 +1,167 @@
+@import "corners.css";
+
+:root {
+    --articleBackground: #000000;
+    --notchSize: 20px;
+    --about: #FF0000;
+    --aboutText: #00000;
+    --education: #7F007F;
+    --educationText: #d2d7d3;
+    --skills: #0000FF;
+    --skillsText: #ffffff;
+    --portfolio: #007F7F;
+    --portfolioText: #eeeeee;
+    --contact: #00FF00;
+    --contactText: #000000;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0,60,30,0.85);
+    background-image: url("../img/bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+body.loading {
+    overflow: hidden;
+}
+
+body.loading .overlay {
+    display: block;
+}
+
+.overlay {
+    display:none;
+    position: fixed;
+    top: 0; right: 0;
+    bottom: 0; left: 0;
+    z-index: 999;
+    background: rgba(0,0,0,0.8) url("/assets/img/rubiks.gif") center no-repeat;
+}
+
+header {
+    text-align: center;
+    background: #000000;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 5px 0 0 10px;
+    z-index: 9;
+}
+
+header img {
+    display: inline-block;
+    max-height: 50px;
+    width: auto;
+    margin-right: 5px;
+}
+
+header h1, header h2, header h3, header h4, header h5, header h6 {
+    display: inline-block;
+}
+
+main {
+    background: rgba(255,255,255,0.5);
+    padding: 15px 30px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    width: auto;
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 0;
+}
+
+article {
+    width: 100%;
+    margin: 15px 0;
+    padding: 25px 0;
+    background: var(--articleBackground);
+    border-radius: 5px;
+}
+
+article h1, article h2, article h3, article h4, article h5, article h6 {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    background: #000000;
+    color: #ffffff;
+    position: relative;
+    left: 0; right: 0; bottom: 0;
+    padding-bottom: 10px;
+}
+
+footer table {
+    display: inline-block;
+}
+
+footer table tr:first-child td h4 {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #000000;
+}
+
+footer table tr td {
+    padding: 0 15px;
+}
+
+footer table tr:not(:first-child) td:first-child, footer table tr td:nth-child(3) {
+    font-weight: bold;
+    text-align: right;
+}
+
+.list-inline li {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #000000;
+    margin: 5px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.5);
+    color: #ffffff;
+}
+
+.list-inline ul {
+    margin-block-start: 0;
+    padding-inline-start: 0;
+}
+
+.gallery ul {
+    padding: 0;
+}
+
+.gallery li {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(0,0,0,0.25);
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin: 5px;
+}
+.gallery h4 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 144px;
+    margin: 0;
+    padding: 3px;
+    background: rgba(0,0,0,0.5);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contact a,
+.contact a:active,
+.contact a:hover,
+.contact a:visited {
+    margin: 5px;
+    padding: 5px;
+    text-decoration: none;
+    color: inherit;
+}

@@ -1,0 +1,21 @@
+<article class="contact {{:classes}}" style="{{:css}}">
+    <h3 class="collapsible-link">{{:title}}</h3>
+    {{if data.email}}
+        <a href="mailto:{{:data.email}}"><i class="far fa-5x fa-envelope"></i></a>
+    {{/if}}
+    {{if data.phone}}
+        <a href="tel:{{:data.phone}}"><i class="fas fa-5x fa-mobile"></i></a>
+    {{/if}}
+    {{if data.web}}
+        <a href="{{:data.web}}" target="_blank"><i class="fas fa-5x fa-globe-europe"></i></a>
+    {{/if}}
+    {{if data.facebook}}
+        <a href="https://facebook.com/{{:data.facebook}}" target="_blank"><i class="fab fa-5x fa-facebook"></i></a>
+    {{/if}}
+    {{if data.twitter}}
+        <a href="https://twitter.com/{{:data.twitter}}" target="_blank"><i class="fab fa-5x fa-twitter"></i></a>
+    {{/if}}
+    {{if data.github}}
+        <a href="https://github.com/{{:data.github}}" target="_blank"><i class="fab fa-5x fa-github"></i></a>
+    {{/if}}
+</article>
