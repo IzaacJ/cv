@@ -113,6 +113,10 @@ footer table tr:not(:first-child) td:first-child, footer table tr td:nth-child(3
     text-align: right;
 }
 
+footer .icons {
+    padding-top: 10px;
+}
+
 .list-inline li {
     display: inline-block;
     padding: 5px;
