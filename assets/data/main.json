@@ -117,6 +117,10 @@
       "title": "portfolio",
       "type": "gallery",
       "data": [
+        {"title": "CV", "url": "https://github.com/IzaacJ/cv", "img": "/assets/img/portfolio/cv.png"},
+        {"title": "Colorful", "url": "https://youtu.be/Qr7Jbo6BV_A", "img": "/assets/img/portfolio/Colorful-Logo-Text.png"},
+        {"title": "TrashMap", "url": "https://youtu.be/GH7EjDVkqCU", "img": "/assets/img/portfolio/TrashMap.png"},
+        {"title": "ECSL", "url": "https://izaacj.me/2019/07/ecsl-rewrite-again/", "img": "/assets/img/portfolio/ecsl.png"}
       ],
       "classes": [
         "cut-corner cc-tr"
