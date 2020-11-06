@@ -56,7 +56,7 @@ $(document).ready(function ($) {
         return new Promise(resolve => {
             $.ajax({
                 type: "GET",
-                url: "/assets/templates/" + name + ".html",
+                url: "assets/templates/" + name + ".html",
                 success: function (data) {
                     templates[name] = $.templates(data);
                     console.log("Template \"" + name + "\" loaded!");
@@ -70,7 +70,7 @@ $(document).ready(function ($) {
         return new Promise(resolve => {
             $.ajax({
                 type: "GET",
-                url: "/assets/data/main.json",
+                url: "assets/data/main.json",
                 success: function (data) {
                     cvData = data;
                     resolve("Success!");
@@ -117,11 +117,11 @@ $(document).ready(function ($) {
         return new Promise(resolve => {
             formatDate(new Date(document.lastModified), "html_date");
 
-            $.ajax("/assets/js/main.js", {dataType: "text"}).done((d, s, xhr) => {
+            $.ajax("assets/js/main.js", {dataType: "text"}).done((d, s, xhr) => {
                 formatDate(Date.parse(xhr.getResponseHeader("Last-Modified")), "system_date");
-                $.ajax("/assets/css/main.css", {dataType: "text"}).done((d, s, xhr) => {
+                $.ajax("assets/css/main.css", {dataType: "text"}).done((d, s, xhr) => {
                     formatDate(Date.parse(xhr.getResponseHeader("Last-Modified")), "css_date");
-                    $.ajax("/assets/data/main.json", {dataType: "text"}).done((d, s, xhr) => {
+                    $.ajax("assets/data/main.json", {dataType: "text"}).done((d, s, xhr) => {
                         formatDate(Date.parse(xhr.getResponseHeader("Last-Modified")), "info_date");
                         resolve("Success!");
                     }).fail((xhr, s, err) => {
