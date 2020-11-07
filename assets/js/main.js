@@ -102,13 +102,20 @@ $(document).ready(function ($) {
                     name = section.data.name;
                     born = section.data.born;
                 }
-                var classes = section.classes.join(" ");
-                var css = "--articleBackground: " + section.colors.background + "; color: " + section.colors.text + ";";
-                $.each(section.css, (idx, obj) => {
-                    $.each(obj, (key, value) => {
-                        css += key + ": " + value + "; ";
+                var classes = "";
+                var css = "";
+                if(undefined !== section.classes)
+                    classes = section.classes.join(" ");
+                if(undefined !== section.colors) {
+                    css = "--articleBackground: " + section.colors.background + "; color: " + section.colors.text + ";";
+                }
+                if(undefined !== section.css) {
+                    $.each(section.css, (idx, obj) => {
+                        $.each(obj, (key, value) => {
+                            css += key + ": " + value + "; ";
+                        });
                     });
-                });
+                }
                 if (section.sort) {
                     section.data.sort();
                 }
