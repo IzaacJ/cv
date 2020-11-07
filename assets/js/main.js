@@ -10,6 +10,8 @@ $(document).ready(function ($) {
         "profile": null
     };
 
+    var exampleData = false;
+
     var name = null;
     var born = null;
 
@@ -74,6 +76,20 @@ $(document).ready(function ($) {
                 success: function (data) {
                     cvData = data;
                     resolve("Success!");
+                },
+                error: function (xhr, s, err) {
+                    $.ajax({
+                        type: "GET",
+                        url: "assets/example/main.example.json",
+                        success: function (data) {
+                            exampleData = true;
+                            cvData = data;
+                            resolve("Success!");
+                        },
+                        error: function (xhr, s, err) {
+                            reject("No config found!");
+                        }
+                    });
                 }
             });
         });
@@ -117,17 +133,27 @@ $(document).ready(function ($) {
         return new Promise(resolve => {
             formatDate(new Date(document.lastModified), "html_date");
 
-            $.ajax("assets/js/main.js", {dataType: "text"}).done((d, s, xhr) => {
+            $.ajax("assets/js/main.js", { dataType: "text" }).done((d, s, xhr) => {
                 formatDate(Date.parse(xhr.getResponseHeader("Last-Modified")), "system_date");
-                $.ajax("assets/css/main.css", {dataType: "text"}).done((d, s, xhr) => {
+                $.ajax("assets/css/main.css", { dataType: "text" }).done((d, s, xhr) => {
                     formatDate(Date.parse(xhr.getResponseHeader("Last-Modified")), "css_date");
-                    $.ajax("assets/data/main.json", {dataType: "text"}).done((d, s, xhr) => {
-                        formatDate(Date.parse(xhr.getResponseHeader("Last-Modified")), "info_date");
-                        resolve("Success!");
-                    }).fail((xhr, s, err) => {
-                        console.log("ERROR - info_date - " + err);
-                        reject("info_date failed!");
-                    });
+                    if (!exampleData) {
+                        $.ajax("assets/data/main.json", { dataType: "text" }).done((d, s, xhr) => {
+                            formatDate(Date.parse(xhr.getResponseHeader("Last-Modified")), "info_date");
+                            resolve("Success!");
+                        }).fail((xhr, s, err) => {
+                            console.log("ERROR - info_date - " + err);
+                            reject("info_date failed!");
+                        });
+                    } else {
+                        $.ajax("assets/example/main.example.json", { dataType: "text" }).done((d, s, xhr) => {
+                            formatDate(Date.parse(xhr.getResponseHeader("Last-Modified")), "info_date");
+                            resolve("Success!");
+                        }).fail((xhr, s, err) => {
+                            console.log("ERROR - info_date - " + err);
+                            reject("info_date failed!");
+                        });
+                    }
                 }).fail((xhr, s, err) => {
                     console.log("ERROR - css_date - " + err);
                     reject("css_date failed!");
