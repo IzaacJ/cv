@@ -3,16 +3,6 @@
 :root {
     --articleBackground: #000000;
     --notchSize: 20px;
-    --about: #FF0000;
-    --aboutText: #00000;
-    --education: #7F007F;
-    --educationText: #d2d7d3;
-    --skills: #0000FF;
-    --skillsText: #ffffff;
-    --portfolio: #007F7F;
-    --portfolioText: #eeeeee;
-    --contact: #00FF00;
-    --contactText: #000000;
 }
 
 body {
