@@ -94,6 +94,17 @@ $(document).ready(function ($) {
             });
         });
     }
+	
+	function getSectionData(type) {
+		var data = null;
+		$.each(cvData.sections, (idx, section) => {
+			console.log("Index: " + idx + ", Type: " + section.type);
+			if (section.type == type) {
+				data = section.data;
+			}
+		});
+		return data;
+	}
 
     function renderData() {
         return new Promise(resolve => {
@@ -101,6 +112,8 @@ $(document).ready(function ($) {
                 if (section.type == "profile") {
                     name = section.data.name;
                     born = section.data.born;
+					console.log(getSectionData("contact"));
+					section.data.contact = getSectionData("contact");
                 }
                 var classes = "";
                 var css = "";
@@ -117,7 +130,9 @@ $(document).ready(function ($) {
                     });
                 }
                 if (section.sort) {
-                    section.data.sort();
+                    section.data.sort((a, b) => {
+						return a.toLowerCase().localeCompare(b.toLowerCase());
+					});
                 }
                 $('#sections').append(
                     templates[section.type].render({
@@ -131,6 +146,9 @@ $(document).ready(function ($) {
             $("*[data-name]").each((index, elem) => {
                 $(elem).html(name);
             });
+			$("*[data-born]").each((index, elem) => {
+				$(elem).html(born);
+			});
             calculateAge(born);
             resolve("Success!");
         });

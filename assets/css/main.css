@@ -65,9 +65,9 @@ main {
 }
 
 article {
-    width: 100%;
+    width: 95%;
     margin: 15px 0;
-    padding: 25px 0;
+    padding: 25px 20px;
     background: var(--articleBackground);
     border-radius: 5px;
     color: #ffffff;
@@ -110,6 +110,14 @@ footer .icons {
 
 .profile {
     text-align: center;
+}
+
+.profile a,
+.profile a:active,
+.profile a:visited,
+.profile a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
 }
 
 .list-inline li {

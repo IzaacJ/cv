@@ -9,7 +9,27 @@
             <h3>{{:data.name}}</h3>
             <h4>{{:data.motto}}</h4>
             <h5>{{:data.location}}</h5>
-            <h5><span data-age></span> years old.</h5>
+            <h5>Born: <span data-born></span> (<span data-age></span> years old)</h5>
         </div>
+		<div class="row">
+			{{if data.contact.email}}
+				<a href="mailto:{{:data.contact.email}}"><i class="far fa-3x fa-envelope"></i></a>
+			{{/if}}
+			{{if data.contact.phone}}
+				<a href="tel:{{:data.contact.phone}}"><i class="fas fa-3x fa-mobile"></i></a>
+			{{/if}}
+			{{if data.contact.web}}
+				<a href="{{:data.contact.web}}" target="_blank"><i class="fas fa-3x fa-globe-europe"></i></a>
+			{{/if}}
+			{{if data.contact.facebook}}
+				<a href="https://facebook.com/{{:data.contact.facebook}}" target="_blank"><i class="fab fa-3x fa-facebook"></i></a>
+			{{/if}}
+			{{if data.contact.twitter}}
+				<a href="https://twitter.com/{{:data.contact.twitter}}" target="_blank"><i class="fab fa-3x fa-twitter"></i></a>
+			{{/if}}
+			{{if data.contact.github}}
+				<a href="https://github.com/{{:data.contact.github}}" target="_blank"><i class="fab fa-3x fa-github"></i></a>
+			{{/if}}
+		</div>
     </div>
 </article>
