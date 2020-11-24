@@ -65,7 +65,7 @@ main {
 }
 
 article {
-    width: 95%;
+    
     margin: 15px 0;
     padding: 25px 20px;
     background: var(--articleBackground);
@@ -112,10 +112,19 @@ footer .icons {
     text-align: center;
 }
 
+.profile img {
+    width: 90%;
+    max-width: 250px;
+    height: auto;
+    border: 1px solid #FFFFFF;
+}
+
 .profile a,
 .profile a:active,
 .profile a:visited,
 .profile a:hover {
+    line-height: 5em;
+    margin: 15px;
 	color: #FFFFFF;
 	text-decoration: none;
 }
@@ -174,7 +183,8 @@ footer .icons {
 .contact a:active,
 .contact a:hover,
 .contact a:visited {
-    margin: 5px;
+    line-height: 5em;
+    margin: 15px;
     padding: 5px;
     text-decoration: none;
     color: inherit;
