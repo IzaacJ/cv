@@ -98,7 +98,6 @@ $(document).ready(function ($) {
 	function getSectionData(type) {
 		var data = null;
 		$.each(cvData.sections, (idx, section) => {
-			console.log("Index: " + idx + ", Type: " + section.type);
 			if (section.type == type) {
 				data = section.data;
 			}
@@ -114,7 +113,6 @@ $(document).ready(function ($) {
                 if (section.type == "profile") {
                     name = section.data.name;
                     born = section.data.born;
-					console.log(getSectionData("contact"));
 					section.data.contact = getSectionData("contact");
                 }
                 var classes = "";
