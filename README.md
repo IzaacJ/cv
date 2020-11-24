@@ -4,6 +4,8 @@ This project can be used to publish your CV as a website. It does not require an
 
 Any data you want to be shown is put in `/assets/data/main.json`. You can copy the file `/assets/example/main.example.json` to `/assets/data/main.json` and make changes to that.
 
+>All images are recommended to be placed in `/assets/data/img` and portfolio images in `/assets/data/img/portfolio` to keep them safe when pulling from this repository.
+
 The structure of `main.json` looks like this:
 ```json
 {
@@ -58,7 +60,7 @@ An example of a profile section:
         "location": "Strängnäs, Sweden",
         "motto": "Father | Gamer | Developer",
         "born": "1989-06-30",
-        "image": "assets/img/me.jpg"
+        "image": "assets/data/img/me.jpg"
     },
     "classes": [
         "cut-corner",
@@ -134,10 +136,10 @@ An example of a gallery section:
     "type": "gallery",
     "title": "Portfolio",
     "data": [
-        { "title": "Project 1", "url": "#project1", "image": "assets/img/portfolio/project1.png" },
-        { "title": "Project 2", "url": "#project2", "image": "assets/img/portfolio/project2.png" },
-        { "title": "Project 3", "url": "#project3", "image": "assets/img/portfolio/project3.png" },
-        { "title": "Project 4", "url": "#project4", "image": "assets/img/portfolio/project4.png" }
+        { "title": "Project 1", "url": "#project1", "image": "assets/data/img/portfolio/project1.png" },
+        { "title": "Project 2", "url": "#project2", "image": "assets/data/img/portfolio/project2.png" },
+        { "title": "Project 3", "url": "#project3", "image": "assets/data/img/portfolio/project3.png" },
+        { "title": "Project 4", "url": "#project4", "image": "assets/data/img/portfolio/project4.png" }
     ],
     "classes": [
         "cut-corner",
