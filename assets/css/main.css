@@ -120,6 +120,12 @@ footer .icons {
 	text-decoration: none;
 }
 
+.list li {
+    margin: 10px 25px 20px 25px;
+    padding-left: 0em;
+    text-indent: -1.5em;
+}
+
 .list-inline li {
     display: inline-block;
     padding: 5px;
@@ -128,6 +134,7 @@ footer .icons {
     border-radius: 10px;
     background: rgba(0,0,0,0.5);
     color: #ffffff;
+    text-indent: inherit;
 }
 
 .list-inline ul {
