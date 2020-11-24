@@ -109,6 +109,8 @@ $(document).ready(function ($) {
     function renderData() {
         return new Promise(resolve => {
             $.each(cvData.sections, (idx, section) => {
+                if (section.disabled == true) return;
+
                 if (section.type == "profile") {
                     name = section.data.name;
                     born = section.data.born;

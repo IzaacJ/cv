@@ -32,8 +32,9 @@ Each template needs some information that is specific to that template (found be
 
 | Template | Data | Required | Type | Description | Example |
 :-: | :-: | :-: | - | - | - |
-(ALL) | `title` | yes | string | Title of the section | `"title": "Profile"`
+(ALL) | `title` | yes | string | Title of the section. | `"title": "Profile"`
 (ALL) | `type` | yes | Section | Type of the section.<br>Valid values are `profile`, `html`, `list`, `gallery`, `contact`. | `"type": "profile"`
+(ALL) | `disabled` | no | Boolean | Disable this section.<br>Set this to `true` (without quotes) to disable a section. | `"disable": true`
 (ALL) | `data` | yes | Object/string | Content depends on which `type`.<br>See the individual sections below for each section type.
 (ALL) | `classes` | no | Array | CSS classes that will be added to the section. | `"classes": [ "some-class", "some-other-class" ]`
 (ALL) | `css` | no | Array | CSS statements that will be added to the section. | `"css": [ {"text-align": "center"}, {"display": "inline-block"} ]`
@@ -185,8 +186,35 @@ An example of a contact section:
 }
 ```
 
+### Disable a Section
+When disabling a section it will be ignored when rendering the CV.<br>
+It will only disable the section if the value is `true`, otherwise it will ignore this option and render the section as usual.
+
+`"disable": true`
+
+An example of a disabled section:
+```json
+{
+    "type": "html",
+    "title": "Some info",
+    "disabled": true,
+    "data": "<p>There is no way that this section will be rendered!</p>",
+    "classes": [
+        "cut-corner",
+        "cc-tr"
+    ],
+    "css": [
+        {"text-align": "center"}
+    ],
+    "colors": {
+        "text": "#ffffff",
+        "background": "rgba(128,128,128,.5)"
+    }
+}
+```
+
 ## So, how about hosting?
-All requirements should be met by any hosting provider which can serve HTML sites. There is no database requirement, no server-side scripts of any kind.
+All requirements should be met by any hosting provider which can serve HTML sites. There is no database requirement, and no server-side scripts of any kind.
 
 You could even just fork this and publish it as a [GitHub Page](https://pages.github.com/)!
 

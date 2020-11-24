@@ -8,7 +8,7 @@
         "location": "Someplace, Somewhere",
         "motto": "Something something awesome!",
         "born": "1990-01-01",
-        "image": "assets/example/portrait.jpg"
+        "image": "assets/example/img/portrait.jpg"
       },
       "classes": [
         "cut-corner cc-tr"
@@ -78,10 +78,10 @@
       "title": "GALLERY Section",
       "type": "gallery",
       "data": [
-        {"title": "Sample Project 1", "url": "#", "img": "assets/example/portfolio/Project1.png"},
-        {"title": "Sample Project 2", "url": "#", "img": "assets/example/portfolio/Project2.png"},
-        {"title": "Sample Project 3", "url": "#", "img": "assets/example/portfolio/Project3.png"},
-        {"title": "Sample Project 4", "url": "#", "img": "assets/example/portfolio/Project4.png"}
+        {"title": "Sample Project 1", "url": "#", "img": "assets/example/img/portfolio/Project1.png"},
+        {"title": "Sample Project 2", "url": "#", "img": "assets/example/img/portfolio/Project2.png"},
+        {"title": "Sample Project 3", "url": "#", "img": "assets/example/img/portfolio/Project3.png"},
+        {"title": "Sample Project 4", "url": "#", "img": "assets/example/img/portfolio/Project4.png"}
       ],
       "classes": [
         "cut-corner cc-tr"
@@ -92,6 +92,22 @@
       "colors": {
         "text": "#FFFFFF",
         "background": "rgba(0,128,0,0.9)"
+      }
+    },
+    {
+      "disabled": true,
+      "title": "Disabled section",
+      "type": "html",
+      "classes": [
+        "cut-corner cc-tr"
+      ],
+      "css": [
+        {"text-align": "center"}
+      ],
+      "data": "Supports <b>HTML</b> tags to show any kind of information! But this section is disabled!",
+      "colors": {
+        "text": "#000000",
+        "background": "rgba(255,255,255,0.9)"
       }
     },
     {
