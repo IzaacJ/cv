@@ -9,7 +9,7 @@ $(document).ready(function ($) {
         "contact": null,
         "profile": null
     };
-    
+
     var pdfTemplates = {
         "html": null,
         "list": null,
@@ -41,15 +41,17 @@ $(document).ready(function ($) {
         return new Promise(resolve => {
             console.log("Loading templates...")
             loadTemplates().then((message) => {
-                console.log("All templates loaded");
-                console.log("Loading data...")
-                loadData().then(message => {
-                    console.log("All data loaded");
-                    console.log("Render data...");
-                    renderData().then(message => {
-                        console.log("Everything done!");
-                        updateDate().then(message => {
-                            resolve("Success!");
+                loadPDFTemplates().then((message) => {
+                    console.log("All templates loaded");
+                    console.log("Loading data...")
+                    loadData().then(message => {
+                        console.log("All data loaded");
+                        console.log("Render data...");
+                        renderPDF(true).then(message => {
+                            console.log("Everything done!");
+                            updateDate().then(message => {
+                                resolve("Success!");
+                            });
                         });
                     });
                 });
@@ -109,26 +111,26 @@ $(document).ready(function ($) {
             });
         });
     }
-	
-	function getSectionData(type) {
-		var data = null;
-		$.each(cvData.sections, (idx, section) => {
-			if (section.type == type) {
-				data = section.data;
-			}
-		});
-		return data;
-	}
-    
-	function getSection(title) {
+
+    function getSectionData(type) {
         var data = null;
-		$.each(cvData.sections, (idx, section) => {
-			if (section.title == title) {
+        $.each(cvData.sections, (idx, section) => {
+            if (section.type == type) {
+                data = section.data;
+            }
+        });
+        return data;
+    }
+
+    function getSection(title) {
+        var data = null;
+        $.each(cvData.sections, (idx, section) => {
+            if (section.title == title) {
                 data = section;
-			}
-		});
-		return data;
-	}
+            }
+        });
+        return data;
+    }
 
     function renderData() {
         return new Promise(resolve => {
@@ -138,16 +140,16 @@ $(document).ready(function ($) {
                 if (section.type == "profile") {
                     name = section.data.name;
                     born = section.data.born;
-					section.data.contact = getSectionData("contact");
+                    section.data.contact = getSectionData("contact");
                 }
                 var classes = "";
                 var css = "";
-                if(undefined !== section.classes)
+                if (undefined !== section.classes)
                     classes = section.classes.join(" ");
-                if(undefined !== section.colors) {
+                if (undefined !== section.colors) {
                     css = "--articleBackground: " + section.colors.background + "; color: " + section.colors.text + ";";
                 }
-                if(undefined !== section.css) {
+                if (undefined !== section.css) {
                     $.each(section.css, (idx, obj) => {
                         $.each(obj, (key, value) => {
                             css += key + ": " + value + "; ";
@@ -156,8 +158,8 @@ $(document).ready(function ($) {
                 }
                 if (section.sort) {
                     section.data.sort((a, b) => {
-						return a.toLowerCase().localeCompare(b.toLowerCase());
-					});
+                        return a.toLowerCase().localeCompare(b.toLowerCase());
+                    });
                 }
                 $('#sections').append(
                     templates[section.type].render({
@@ -171,14 +173,14 @@ $(document).ready(function ($) {
             $("*[data-name]").each((index, elem) => {
                 $(elem).html(name);
             });
-			$("*[data-born]").each((index, elem) => {
-				$(elem).html(born);
-			});
+            $("*[data-born]").each((index, elem) => {
+                $(elem).html(born);
+            });
             calculateAge(born);
             resolve("Success!");
         });
     }
-    
+
     function printPDF() {
         $('body').addClass('loading');
 
@@ -195,7 +197,7 @@ $(document).ready(function ($) {
                         printJS({
                             printable: 'pdf',
                             type: 'html',
-                            css: [ "assets/css/pdf.css", "assets/css/fontawesome.min.css" ]
+                            css: ["assets/css/pdf.css", "assets/css/fontawesome.min.css"]
                         });
                         $("#pdf").remove();
                         setTimeout(() => {
@@ -208,7 +210,7 @@ $(document).ready(function ($) {
         });
     }
 
-    function loadPDF() {        
+    function loadPDF() {
         return new Promise(resolve => {
             $.ajax({
                 type: "GET",
@@ -256,10 +258,10 @@ $(document).ready(function ($) {
 
     function renderPDF(preview) {
         return new Promise(resolve => {
-            if(pdfHtml == null && (undefined == preview || preview == null || preview == false)) {
+            if (pdfHtml == null && (undefined == preview || preview == null || preview == false)) {
                 reject("PDF template not loaded!");
             }
-            
+
             $.each(cvData.pdf.sections, (idx, s) => {
                 section = getSection(s);
 
@@ -269,17 +271,17 @@ $(document).ready(function ($) {
                 }
 
                 if (section.disabled == true) return;
-                
+
                 var classes = "";
-                if(undefined !== section.classes)
+                if (undefined !== section.classes)
                     classes = section.classes.join(" ");
-                
+
                 if (section.sort) {
                     section.data.sort((a, b) => {
-						return a.toLowerCase().localeCompare(b.toLowerCase());
-					});
+                        return a.toLowerCase().localeCompare(b.toLowerCase());
+                    });
                 }
-                if(undefined != preview && preview != false) {
+                if (undefined != preview && preview != false) {
                     $('#sections').append(
                         pdfTemplates[section.type].render({
                             "title": section.title,
@@ -287,7 +289,7 @@ $(document).ready(function ($) {
                             "classes": classes
                         })
                     );
-                }else{
+                } else {
                     $(pdfHtml).find('#sections').append(
                         pdfTemplates[section.type].render({
                             "title": section.title,
@@ -314,7 +316,7 @@ $(document).ready(function ($) {
                 $("*[data-printdate]").each((index, elem) => {
                     $(elem).html(formatDate(new Date(), null, true));
                 });
-            }else{
+            } else {
                 $(pdfHtml).find("*[data-name]").each((index, elem) => {
                     $(elem).html(name);
                 });
@@ -397,14 +399,14 @@ $(document).ready(function ($) {
 
         if (undefined != time && time != false && undefined != timezone && timezone != false) {
             out = y + '-' + m + '-' + d + ' ' + h + ':' + mm + ' GMT' + (tz < 0 ? '+' + tt : (tz > 0 ? tt : ''));
-        }else if (undefined != time && time != false && (undefined == timezone || timezone == false)) {
+        } else if (undefined != time && time != false && (undefined == timezone || timezone == false)) {
             out = y + '-' + m + '-' + d + ' ' + h + ':' + mm;
-        }else if ((undefined == time || time == false) && (undefined == timezone || timezone == false)) {
+        } else if ((undefined == time || time == false) && (undefined == timezone || timezone == false)) {
             out = y + "-" + m + "-" + d;
         }
         if (undefined != elemid && elemid != null) {
             $("#" + elemid).html(out);
-        }else{
+        } else {
             return out;
         }
     }

@@ -1,0 +1,16 @@
+<article class="list {{:classes}}">
+    <h3 class="collapsible-link">{{:title}}</h3>
+    <ul>
+        {{for data}}
+            {{if title && description}}
+                <li><b>{{:title}}</b><br>{{:description}}</li>
+            {{else title}}
+                <li><b>{{:title}}</b></li>
+            {{else description}}
+                <li><b>{{:description}}</b></li>
+            {{else}}
+                <li><b>{{:#data}}</b></li>
+            {{/if}}
+        {{/for}}
+    </ul>
+</article>

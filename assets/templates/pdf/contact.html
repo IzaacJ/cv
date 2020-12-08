@@ -1,0 +1,34 @@
+<article class="contact">
+    <div class="container">
+        {{if data.phone}}
+        <div class="row">
+            {{:data.phone}} <label><i class="fas fa-1x fa-mobile"></i></label>
+        </div>
+        {{/if}}
+        {{if data.email}}
+        <div class="row">
+            {{:data.email}} <label><i class="far fa-1x fa-envelope"></i></label>
+        </div>
+        {{/if}}
+        {{if data.web}}
+        <div class="row">
+            {{:data.web}} <label><i class="fas fa-1x fa-globe-europe"></i></label>
+        </div>
+        {{/if}}
+        {{if data.facebook}}
+        <div class="row">
+            {{:data.facebook}} <label><i class="fab fa-1x fa-facebook"></i></label>
+        </div>
+        {{/if}}
+        {{if data.twitter}}
+        <div class="row">
+            {{:data.twitter}} <label><i class="fab fa-1x fa-twitter"></i></label>
+        </div>
+        {{/if}}
+        {{if data.github}}
+        <div class="row">
+            {{:data.github}} <label><i class="fab fa-1x fa-github"></i></label>
+        </div>
+        {{/if}}
+    </div>
+</article>

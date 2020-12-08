@@ -1,0 +1,115 @@
+@page {
+    size: A4;
+    margin: 0;
+}
+
+footer {
+    text-align: center;
+}
+
+#pdf {
+    width: 210mm;
+    height: 290mm;
+    font-size: 10pt;
+    font-family: monospace;
+}
+main#sections {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+
+#pdf article {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+.container {
+    width: 100%;
+}
+#pdf > h1 {
+    width: 100%;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.contact {
+    justify-content: center !important;
+    width: 95mm;
+    height: 70mm;
+    text-align: right;
+    font-size: 16pt;
+}
+.contact .row {
+    margin: 5pt 0pt;
+}
+.contact i {
+    width: 16pt;
+    height: 16pt;
+    text-align: center;
+}
+
+.profile {
+    width: 95mm;
+    height: 70mm;
+    text-align: center;
+}
+.profile img {
+    width: 100%;
+    height: 60mm;
+    object-fit: contain;
+    object-position: center;
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+}
+
+.list {
+    width: 95mm;
+}
+.list ul {
+    margin-block-end: 10pt;
+    margin-right: 10pt;
+    margin-block-start: -10pt;
+    margin-inline-end: 10pt;
+    margin-inline-start: 0pt;
+}
+.list ul li::first-line {
+    text-decoration: underline;
+}
+.list ul li {
+    margin-block-end: 10pt;
+    padding-inline-start: 10pt;
+    margin-inline-start: -13pt;
+    list-style: none;
+    text-indent: -10pt;
+}
+
+.list.list-inline ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0pt 10pt;
+    padding: 0;
+}
+.list.list-inline ul li::before {
+    content: ""\U0001F4DA"";
+}
+.list.list-inline ul li::first-line {
+    text-decoration: none;
+}
+.list.list-inline ul li {
+    display: flex;
+    flex-basis: 25%;
+    margin: 7pt 7pt;
+    text-indent: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    margin-inline-start: 0;
+    align-items: center;
+    padding: 1pt;
+    list-style: circle;
+}
