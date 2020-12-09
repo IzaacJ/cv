@@ -239,6 +239,11 @@ class CV {
                         type: 'html',
                         css: ["assets/css/pdf.css", "assets/css/fontawesome.min.css"]
                     });
+                    $("#print").remove();
+                    setTimeout(() => {
+                        $("#printJS").remove();
+                        $('body').removeClass('loading');
+                    }, 1000);
                     resolve("Success!");
                 });
             });
@@ -296,6 +301,14 @@ class CV {
                 console.log("ERROR - system_date - " + err);
                 resolve("system_date failed!");
             });
+        
+            $("*[data-name]").each((index, elem) => {
+                $(elem).html(cv.name);
+            });
+            $("*[data-born]").each((index, elem) => {
+                $(elem).html(cv.born);
+            });
+            cv.calculateAge(cv.born);
         });
     }
 
@@ -356,7 +369,7 @@ class CV {
         ) {
             a = a - 1; // Subtract one year since birthday this year hasn't been yet.
         }
-        age = a;
+        cv.age = a;
         $("[data-age]").each((idx, elem) => {
             $(elem).html(a);
         });
