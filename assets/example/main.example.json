@@ -1,4 +1,10 @@
 {
+  "print": { 
+    "sections": [ "contact", "profile", "HTML Section", "LIST Section", "LIST Section - Inline", "gallery", "Disabled section"]
+  },
+  "html": {
+    "sections": [ "profile", "HTML Section", "LIST Section", "LIST Section - Inline", "gallery", "Disabled section", "contact" ]
+  },
   "sections": [
     {
       "title": "profile",
@@ -56,7 +62,7 @@
       }
     },
     {
-      "title": "LIST Section",
+      "title": "LIST Section - Inline",
       "type": "list",
       "classes": [
         "cut-corner cc-tr",

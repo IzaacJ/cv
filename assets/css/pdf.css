@@ -7,7 +7,7 @@ footer {
     text-align: center;
 }
 
-#pdf {
+#print {
     width: 210mm;
     height: 290mm;
     font-size: 10pt;
@@ -21,7 +21,7 @@ main#sections {
     justify-content: space-evenly;
 }
 
-#pdf article {
+#print article {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -30,7 +30,7 @@ main#sections {
 .container {
     width: 100%;
 }
-#pdf > h1 {
+#print > h1 {
     width: 100%;
     text-align: center;
     text-decoration: underline;
