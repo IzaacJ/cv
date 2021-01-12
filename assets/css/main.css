@@ -147,6 +147,10 @@ footer .icons {
 	text-decoration: none;
 }
 
+.list ul {
+    list-style: none;
+}
+
 .list li {
     margin: 10px 25px 20px 25px;
     padding-left: 0em;
