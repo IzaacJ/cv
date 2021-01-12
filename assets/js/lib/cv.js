@@ -139,7 +139,10 @@ class CV {
     getSection(typeOrTitle) {
         var d = null;
         $.each(this.data.sections, (idx, section) => {
-            if (section.title.toLowerCase() === typeOrTitle.toLowerCase() || section.type.toLowerCase() === typeOrTitle.toLowerCase()) {
+            if (section.title.toLowerCase() === typeOrTitle.toLowerCase() || 
+                section.type.toLowerCase() === typeOrTitle.toLowerCase() || 
+                undefined != section.id && section.id.toLowerCase() == typeOrTitle.toLowerCase())
+            {
                 d = section;
                 return false;
             }
@@ -164,7 +167,7 @@ class CV {
             $.each(sections, (idx, section) => {
                 section = this.getSection(section);
 
-                if (section.disabled == true) return;
+                if (section == null || undefined != section.disabled && section.disabled == true) return;
 
                 if (section.type == "profile") {
                     section.data.contact = this.getSection("contact").data;
