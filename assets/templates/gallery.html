@@ -1,8 +1,14 @@
 <article class="gallery {{:classes}}" style="{{:css}}">
-    <h3 class="collapsible-link">{{:title}}</h3>
-    <ul>
-        {{for data}}
-            <a href="{{:url}}" target="_blank"><li style="background-image: url({{:img}});"><h4>{{:title}}</h4></li></a>
-        {{/for}}
-    </ul>
-</article>
+        <h3 class="collapsible-link">{{:title}}</h3>
+        {{if data.length}}
+            <ul>
+                {{for data}}
+                    <a href="{{:url}}" target="_blank"><li style="background-image: url({{:image}});"><h4>{{:title}}</h4></li></a>
+                {{/for}}
+            </ul>
+        {{else}}
+            <p>Nothing to show right now...<br>
+            <br>
+            Check back later.</p>
+        {{/if}}
+    </article>

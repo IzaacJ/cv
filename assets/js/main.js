@@ -105,6 +105,17 @@ $(document).ready(function ($) {
 		return data;
 	}
 
+    function filterData(data) {
+        if(typeof data === 'string') return data;
+        if(Array.isArray(data)) {
+            return data.filter(d => ((undefined !== d.disabled && d.disabled === false) || undefined === d.disabled));
+        }
+        if(typeof data === 'object') {
+            if((undefined !== data.disabled && data.disabled === false) || undefined === data.disabled) return data;
+        }
+        return undefined;
+    }
+
     function renderData() {
         return new Promise(resolve => {
             $.each(cvData.sections, (idx, section) => {
@@ -134,9 +145,15 @@ $(document).ready(function ($) {
 						return a.toLowerCase().localeCompare(b.toLowerCase());
 					});
                 }
+                section.data = filterData(section.data);
+
+                if(undefined !== section.show && typeof section.show === 'number' && Array.isArray(section.data)) {
+                    section.data = section.data.slice(0, section.show);
+                }
+                
                 $('#sections').append(
                     templates[section.type].render({
-                        "title": section.title,
+                        "title": section.title ?? undefined,
                         "classes": classes,
                         "css": css,
                         "data": section.data

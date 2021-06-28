@@ -1,4 +1,8 @@
 <article class="{{:classes}}" style="{{:css}}">
-    <h3 class="collapsible-link">{{:title}}</h3>
-    {{:data}}
+    {{if title}}<h3 class="collapsible-link">{{:title}}</h3>{{/if}}
+    {{if data.length}}
+        {{:data.join('<br>')}}
+    {{else}}
+        {{:data}}
+    {{/if}}
 </article>
