@@ -1,136 +1,189 @@
 {
-  "sections": [
-    {
-      "title": "profile",
-      "type": "profile",
-      "data": {
-        "name": "John Doe",
-        "location": "Someplace, Somewhere",
-        "motto": "Something something awesome!",
-        "born": "1990-01-01",
-        "image": "assets/example/img/portrait.jpg"
-      },
-      "classes": [
-        "cut-corner cc-tr"
-      ],
-      "css": [
-        {"text-align":  "center"}
-      ],
-      "colors": {
-        "text": "#FFFFFF",
-        "background": "rgba(128,128,128,0.9)"
-      }
+  "about": {
+    "name": "Firstname Lastname",
+    "dob": "19700101",
+    "city": "Strängnäs"
+  },
+  "web": [
+    "about",
+    { "id": "section1", "header": "Section #1", "data": "contact", "template": "contact" },
+    "data.skillsgeneral",
+    "data.experiencework",
+    "data.certifications"
+  ],
+  "print": [
+    "about",
+    "contact",
+    "data.skills.general",
+    "data.experiencework",
+    "data.certifications"
+  ],
+  "contact": [
+    { "type": "address",
+      "data": "123 Street, 14253 Cityname, Country",
+      "work": false
     },
-    {
-      "title": "HTML Section",
-      "type": "html",
-      "data": "Supports <b>HTML</b> tags to show any kind of information!",
-      "classes": [
-        "cut-corner cc-tr"
-      ],
-      "css": [
-        {"text-align": "center"}
-      ],
-      "colors": {
-        "text": "#FFFFFF",
-        "background": "rgba(0,0,0,0.9)"
-      }
+    { "type": "address",
+      "data": "Workway 2, 25486 Cityname, Country",
+      "work": true
     },
-    {
-      "title": "LIST Section",
-      "type": "list",
-      "classes": [
-        "cut-corner cc-tr"
-      ],
-      "css": [
-      ],
-      "data": [
-        {"title": "A title", "description": "A description. Fitting for listing experiences, education and such"},
-        {"title": "2020", "description": "Some course related to my field of work.<br>Some other info here."},
-        {"title": "2019", "description": "Another course related to my field of work."},
-        {"title": "2018", "description": "Yet another course related to my field of work."}
-      ],
-      "colors": {
-        "text": "#000000",
-        "background": "rgba(255,255,255,0.9)"
-      }
+    { "type": "phone",
+      "data": "070-123 45 67",
+      "work": false
     },
-    {
-      "title": "LIST Section",
-      "type": "list",
-      "classes": [
-        "cut-corner cc-tr",
-        "list-inline"
-      ],
-      "css": [
-        {"text-align": "center"}
-      ],
-      "data": [
-        "Good way to list skills", "Skill 1", "Skill 2", "Skill 3", "Skill 4", "Skill 5"
-      ],
-      "sort": true,
-      "colors": {
-        "text": "#FFFFFF",
-        "background": "rgba(0,0,128,0.9)"
-      }
+    { "type": "phone",
+      "data": "070-345 67 89",
+      "work": true
     },
-    {
-      "title": "GALLERY Section",
-      "type": "gallery",
-      "data": [
-        {"title": "Sample Project 1", "url": "#", "img": "assets/example/img/portfolio/Project1.png"},
-        {"title": "Sample Project 2", "url": "#", "img": "assets/example/img/portfolio/Project2.png"},
-        {"title": "Sample Project 3", "url": "#", "img": "assets/example/img/portfolio/Project3.png"},
-        {"title": "Sample Project 4", "url": "#", "img": "assets/example/img/portfolio/Project4.png"}
-      ],
-      "classes": [
-        "cut-corner cc-tr"
-      ],
-      "css": [
-        {"text-align": "center"}
-      ],
-      "colors": {
-        "text": "#FFFFFF",
-        "background": "rgba(0,128,0,0.9)"
-      }
+    { "type": "email",
+      "data": "name@domain.tld",
+      "work": false
     },
-    {
-      "disabled": true,
-      "title": "Disabled section",
-      "type": "html",
-      "classes": [
-        "cut-corner cc-tr"
-      ],
-      "css": [
-        {"text-align": "center"}
-      ],
-      "data": "Supports <b>HTML</b> tags to show any kind of information! But this section is disabled!",
-      "colors": {
-        "text": "#000000",
-        "background": "rgba(255,255,255,0.9)"
-      }
+    { "type": "email",
+      "data": "name@company.tld",
+      "work": true
     },
-    {
-      "title": "contact",
-      "type": "contact",
-      "classes": [
-        "cut-corner cc-tr"
-      ],
-      "css": [
-        {"text-align": "center"}
-      ],
-      "data": {
-        "web": "#",
-        "email": "email@example.com",
-        "facebook": "FacebookName",
-        "github": "GithubUsername",
-        "twitter": "TwitterUsername",
-        "phone": "010-123 45 67"
-      },
-      "colors": {
-        "text": "#FFFFFF",
-        "background": "rgba(128,0,0,0.9)"
-      }
+    { "type": "linkedin",
+      "data": "YourName"
+    },
+    { "type": "twitter",
+      "data": "YourHandle"
+    },
+    { "type": "github",
+      "data": "YourUsername",
+      "work": false
+    },
+    { "type": "github",
+      "data": "CompanyUsername",
+      "work": true
+    },
+    { "type": "web",
+      "data": "www.domain.tld",
+      "work": false
+    },
+    { "type": "web",
+      "data": "www.company.tld",
+      "work": true
+    },
+    { "type": "teams",
+      "data": "",
+      "work": false
+    },
+    { "type": "teams",
+      "data": "",
+      "work": true
     }
+  ],
+  "data": [
+    { "id": "skillsgeneral",
+      "type": "list",
+      "header": "General skills",
+      "content": [
+        "AD DS",
+        "ODM-AD",
+        "Programming"
+        ]
+      },
+    { "id": "skillswork",
+      "type": "list-detailed",
+      "header": "Work skills",
+      "content": [
+        { "id": "odm-ad",
+          "name": "Quest On-Demand Migration for Active Directory",
+          "rating": 7, 
+          "details": "Some description"
+        },
+        { "id": "odm-m365",
+          "name": "Quest On-Demand Migration for Microsoft 365",
+          "rating": 7
+        },
+        { "id": "qmm",
+          "name": "Quest Migration Manager",
+          "details": "Some description"
+        }
+    ]},
+    { "id": "experiencegeneral",
+      "type": "detail",
+      "header": "General experience",
+      "content": [
+        { "id": "recon",
+          "title": "Recon Group Sverige AB",
+          "subtitle": "IT Consultant",
+          "start": "20220401",
+          "description": "Some description",
+          "refs": [
+            "data.skillsgeneral.AD DS",
+            "data.skillswork.odm-ad"
+            ]
+          },
+        { "id": "recon",
+          "title": "Recon Group Sverige AB",
+          "subtitle": "Intern",
+          "start": "20220201",
+          "end": "20220331",
+          "description": "Some description"
+        },
+        { "id": "smode",
+          "title": "Smode AB",
+          "subtitle": "Intern",
+          "start": "20210501",
+          "end": "20210731",
+          "description": "Some description"
+        },
+        { "id": "something else",
+          "title": "Strängnäs Innebandyklubb",
+          "subtitle": "Coach",
+          "description": "Some description"
+        },
+        { "id": "weird",
+          "title": "Title",
+          "description": "Some description"
+        }
+    ]},
+    { "id": "experiencehobby",
+      "type": "detail",
+      "header": "Work experience",
+      "content": [
+        { "id": "networking",
+          "title": "Networking",
+          "description": "Some description"
+        },
+        { "id": "programming",
+          "title": "Programming",
+          "subtitle": "Web, Desktop, UWP, Android",
+          "description": "Some description"
+        }
+    ]},
+    { "id": "certifications",
+      "type": "certificate",
+      "header": "Certifications",
+      "content": [
+        { "id": "odm-ad",
+          "name":"Quest On-Demand Migration for Active Directory",
+          "date": "20220330"
+        },
+        { "id": "odm-m365",
+          "name":"Quest On-Demand Migration for Microsoft 365",
+          "date": "20220410",
+          "expires": "20250101",
+          "description": "Some description",
+          "link": "url-to-certificate"
+        }
+    ]},
+    { "id": "education",
+      "type": "detail",
+      "header": "Education",
+      "content": [
+        { "id": "servervirtualspecialist",
+          "title": "Server- & Virtualization Specialist",
+          "subtitle": "EC Education",
+          "start": "2020",
+          "end": "2022",
+          "description": "Some description",
+          "refs": [
+            "data.skillsgeneral.AD DS"
+            ]
+          }
+    ]}
   ]
 }

@@ -1,4 +1,54 @@
+import helpers from 'helpers';
+
 $(document).ready(function ($) {
+    var dataCV;
+
+    // Load data
+    function load() {
+        return new Promise(resolve => {
+            console.log("Loading data...")
+            fetchData().then(message => {
+
+            })
+        });
+    }
+
+    // Fetch data
+    function fetchData() {
+        return new Promise(resolve => {
+            $.ajax({
+                type: "GET",
+                url: "assets/data/main.json",
+                success: function (data) {
+                    cvData = data;
+                    resolve("Success!");
+                },
+                error: function (xhr, s, err) {
+                    $.ajax({
+                        type: "GET",
+                        url: "assets/example/main.example.json",
+                        success: function (data) {
+                            exampleData = true;
+                            cvData = data;
+                            resolve("Success!");
+                        },
+                        error: function (xhr, s, err) {
+                            reject("No config found!");
+                        }
+                    });
+                }
+            });
+        });
+    }
+
+    // Parse data
+    function parse(data) {
+        var test = helpers.getData(dataCV, "data.skillswork.odm-ad");
+    }
+
+
+    // Dont run the old reference code!
+    return;
     var headerHeight = $('header').outerHeight(true) + 10;
     $('main').css('padding-top', headerHeight);
 
@@ -204,57 +254,6 @@ $(document).ready(function ($) {
                 console.log("ERROR - system_date - " + err);
                 reject("system_date failed!");
             });
-        });
-    }
-
-    function formatDate(date, elemid) {
-        var fd = new Date(date);
-        var out = '';
-        y = fd.getFullYear();
-        m = fd.getMonth() + 1; // Add one to get correct month. Months start at 0 in JS.
-        d = fd.getDate();
-        h = fd.getHours();
-        mm = fd.getMinutes();
-        tz = fd.getTimezoneOffset();
-
-        // Leading zeros?
-        if (m < 10) {
-            m = '0' + m;
-        }
-        if (d < 10) {
-            d = '0' + d;
-        }
-        if (mm < 10) {
-            mm = '0' + mm;
-        }
-
-        tt = -(tz / 60);
-        out = y + '-' + m + '-' + d + ' ' + h + ':' + mm + ' GMT' + (tz < 0 ? '+' + tt : (tz > 0 ? tt : ''));
-
-        $("#" + elemid).html(out);
-    }
-
-    function calculateAge(date) {
-        var born = new Date(date);
-        var by = born.getFullYear();
-        var bm = born.getMonth() + 1; // Add one to get correct month. Months start at 0 in JS.
-        var bd = born.getDate();
-
-        var current = new Date();
-        var cy = current.getFullYear();
-        var cm = current.getMonth() + 1; // Add one to get correct month. Months start at 0 in JS.
-        var cd = current.getDate();
-
-        var age = (cy - by);
-        // Check if birthday is today or in the past, otherwise subtract one year.
-        if (
-            (cm < bm) || // Birthmonth has NOT passed and is NOT now
-            (cm == bm && cd < bd) // Birthday has NOT passed and is NOT now
-        ) {
-            age = age - 1; // Subtract one year since birthday this year hasn't been yet.
-        }
-        $("[data-age]").each((idx, elem) => {
-            $(elem).html(age);
         });
     }
 });
